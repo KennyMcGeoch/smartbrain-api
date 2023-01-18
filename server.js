@@ -12,7 +12,11 @@ const profile = require('./Controllers/profile');
 const db = knex({
     client: 'pg',
     connection: {
-        connectionString: process.env.DATABASE_URL,
+        host: 'db.xxxwmvxpzompkooyiafe.supabase.co',
+        port: 5432,
+        user: 'postgres',
+        password: 'i1FNjl9yj8OFYU7M',
+        database: 'postgres',
 ssl: {
 rejectUnauthorized: false,
 },
