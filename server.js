@@ -29,7 +29,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get('/', (req, res)=> {
-    res.send("This is working");
+    res.send(`This is working with API key ${process.env.CLARIFAI_KEY}`);
 })
 
 // app.post('/signin', signin.handleSignIn(db, bcrypt)) // alternate way of writing it
