@@ -16,7 +16,7 @@ const handleSignIn = (db, bcrypt) => (req, res) => {
             .catch(err => res.status(400).json('Unable to get user'))
         }
         else{
-            res.status(400).json('Wrong credentials')
+            res.status(400).json('Wrong credentials, password prob')
         }
     }).catch(err => res.status(400).json('Wrong credentials'))
 }
