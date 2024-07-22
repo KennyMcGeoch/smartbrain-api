@@ -22,17 +22,6 @@ rejectUnauthorized: false,
 },
 }});
 
-const dns = require('dns');
-
-dns.lookup('localhost', { verbatim: true }, (err, address) => {
-    if (err) throw err;
-
-    // Use the resolved IPv4 address (address[0].family === 'IPv4')
-    const server = net.createServer(...).listen(address[0].address);
-    // ...
-});
-
-
 const app = express();
 
 app.use(bodyParser.json());
@@ -50,6 +39,6 @@ app.get('/profile/:id',(req, res) => {profile.handleProfile(req, res, db)} )
 app.put('/image', (req, res) => {image.handleImage(req, res, db)})
 app.post('/imageurl', (req, res) => {image.handleApiCall(req, res)})
 
-app.listen(process.env.PORT || 3000, ()=> {
+app.listen(process.env.PORT || 3000, '0.0.0.0',()=> {
     console.log(`app is running on port ${process.env.PORT}`);
 })
