@@ -22,6 +22,16 @@ rejectUnauthorized: false,
 },
 }});
 
+const dns = require('dns');
+
+dns.lookup('localhost', { verbatim: true }, (err, address) => {
+    if (err) throw err;
+
+    // Use the resolved IPv4 address (address[0].family === 'IPv4')
+    const server = net.createServer(...).listen(address[0].address);
+    // ...
+});
+
 
 const app = express();
 
